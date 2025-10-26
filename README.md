@@ -1,58 +1,40 @@
 # my-proyect-add-one-chain
 
-Pipeline para generar y ensamblar polímeros aleatorios (péptidos) sobre una proteína en el N-ter o C-ter, con filtrado geométrico por distancia mínima.
+Script to generate and assemble random polymers (peptides) onto a protein at the N-ter or C-ter end.
 
 ---
 
 ## 1. Dependencia de `random/`
 
-El script necesita la subrutina `src/random/` para generar las configuraciones del polímero.  
-En `src/random/` ya están seteadas las condiciones por defecto:
+The script generates polymers following a RIS model that generates 100,000 random configurations.
+The subroutine is at `src/random/polymer.x`.
+The default conditions are already set in `src/random/polymer.x`:
 
-- `lseg = 0.38`  (nm)
-- `nrot = 1`
-- `cuantas = 1000000`  (configuraciones generadas)
+- `lseg = 0.38`  (nm) , distance between segments
+- `nrot = 100`        , rotations included
+- `cuantas = 100000`  , Total number of generated configurations. 100000/100 = 1000 generated configurations
 
-Estas se pueden modificar directamente dentro de esa carpeta.
+These parameters can be modified in the aux-main.f95 script.
 
 ---
 
 ## 2. Scripts principales
 
-| Archivo                         | Función principal                                  |
-|----------------------------------|----------------------------------------------------|
-| `get_polymers.py`               | Genera polímeros a partir de una secuencia         |
-| `get_protein-polymer.py`        | Lee proteína, filtra polímeros y arma el complejo  |
-| `my_function/`                 | Utilidades auxiliares                              |
-| `run.sh`                        | Script de ejemplo para ejecución completa          |
-
----
-
-## 3. Scripts de gráficas (opcional)
-
-En `plots/` se incluyen herramientas para analizar/visualizar resultados:
-
-- `plot_histo-end2end_confs.py`
-- `temp_origin_for-peptides.mpstyle`
-
----
-
-## 4. Inputs (definidos en `run.sh`)
-
-Todos los parámetros de entrada (proteína, secuencia, terminal, número de conformaciones) se ajustan dentro de `src/run.sh`.
+| file                            | principal function                                            |
+|---------------------------------|---------------------------------------------------------------|
+| `get_polymers.py`               | Generates all polymers that fit to a protein from a sequence  |
+| `get_protein-polymer.py`        | Assembles the all protein-polymer complex                     |
+| `my_function/`                  | Auxiliary utilities                                           |
 
 ---
 
 ## 5. Cómo correr
 
-### Opción A — usando `run.sh`
+get all polymer sequences:
 
-```bash
-cd src
-bash run.sh
+`python3 get_polymers.py.py -input input_filename.xyz -output output_filename.xyz -xter Nter sequence`
 
+It combines all the polymers with the protein, and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
-
-
-
+`python3 get_protein-polymers.py.py -input input_filename.xyz -output output_filename.xyz -xter Nter nconfs sequence`
 
