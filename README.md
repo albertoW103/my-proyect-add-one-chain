@@ -22,13 +22,13 @@ These parameters can be modified in the aux-main.f95 script.
 
 | file                            | principal function                                            |
 |---------------------------------|---------------------------------------------------------------|
-| `get_polymers.py`               | Generates all polymers that fit to a protein from a sequence  |
-| `get_protein-polymer.py`        | Assembles the all protein-polymer complex                     |
-| `my_function/`                  | Auxiliary utilities                                           |
+| `get_polymers.py`               | Generates all polymers that fit to a protein                  |
+| `get_protein-polymer.py`        | Assembles the all protein-polymer complexes                   |
+| `my_functions/my_functions.py`  | Auxiliary utilities                                           |
 
 ---
 
-## 5. Cómo correr
+## 5. How to run
 
 get all polymer sequences:
 
