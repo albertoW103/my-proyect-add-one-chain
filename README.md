@@ -1,30 +1,44 @@
 # my-proyect-add-one-chain
 
-Script to generate and assemble random polymers (peptides) onto a protein at the N-ter or C-ter end.
+The script generates a random set of protein-polymer configurations.
+The polymer is attached to the N-ter or C-ter end of the protein.
 
 ---
 
-## 1. Dependencia de `random/` to generate configuration of polymers
+## 1. How polymer configurations are generated
 
-The script generates polymers following a Rotational Isomeric State (RIS) model that generates 100,000 random configurations.
-The subroutine is at `src/random/polymer.x`.
-The default conditions are already set in `src/random/polymer.x`:
+The script generates polymers configurations following a Rotational Isomeric State (RIS) model.
 
-- `lseg = 0.38`  (nm) , distance between segments for alpha carbons in proteins
-- `nrot = 100`        , rotations included
-- `cuantas = 100000`  , total number of generated configurations. 100000/100 = 1000 generated configurations (the rest are rotations)
+By default, polymer configurations are generated following the parameters:
+- `lseg = 0.38`  (nm) , distance between segments for alpha carbons in proteins.
+- `nrot = 100`        , rotations included.
+- `cuantas = 100000`  , total number of generated configurations. 100000/100 = 1000 generated configurations (the rest are rotations).
 
-These parameters can be modified in the `aux-main.f95` script.
+
+This parameters can be modified in the file `aux-main.f95` at `/random`.
+
 
 ---
 
-## 3. Dependencia de `random/` to generate configuration of polymers
+## 2. How the protein file must be
 
 The script employed protein in the format xyz for molecular theory.
 
 ---
 
-## 3. Scripts principales
+## 3. How the protein and polymer are merged
+
+The polymer configuration is first superposed onto the protein by placing its first bead at the selected terminal (N-ter or C-ter).
+Any configuration where a polymer bead is closer than 0.38 nm (this cutoff can be modified in`get_polymers.py`)
+to the protein is discarded to avoid steric clash.
+All remaining configuration form the valid protein–polymer set (this set is store for comparison).
+From this filtered set, a random subset (see `get_protein-polymers.py` to change the random seed) is selected to be used in simulations.
+
+---
+
+## 3. Scripts
+
+These are the mains scripts:
 
 | file                            | principal function                                            |
 |---------------------------------|---------------------------------------------------------------|
@@ -36,13 +50,13 @@ The script employed protein in the format xyz for molecular theory.
 
 ## 4. How to run
 
-get all polymer sequences:
+First, we generate all pget all polymer sequences:
 
-`python3 get_polymers.py.py -input input_filename.xyz -output output_filename.xyz -xter Nter sequence`
+`python3 get_polymers.py -input input_filename.xyz -output output_filename.xyz -xter Nter sequence`
 
 It combines all the polymers with the protein, and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
-`python3 get_protein-polymers.py.py -input input_filename.xyz -output output_filename.xyz -xter Nter nconfs sequence`
+`python3 get_protein-polymers.py -input input_filename.xyz -output output_filename.xyz -xter Nter nconfs sequence`
 
 
 
