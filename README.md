@@ -29,8 +29,7 @@ The script employed protein in the format xyz for molecular theory.
 ## 3. How the protein and polymer are merged
 
 The polymer configuration is first superposed onto the protein by placing its first bead at the selected terminal (N-ter or C-ter).
-Any configuration where a polymer bead is closer than 0.38 nm (this cutoff can be modified in`get_polymers.py`)
-to the protein is discarded to avoid steric clash.
+Any configuration where a polymer bead is closer than 0.38 nm (this cutoff can be modified in`get_polymers.py`) to the protein is discarded to avoid steric clash.
 All remaining configuration form the valid protein–polymer set (this set is store for comparison).
 From this filtered set, a random subset (see `get_protein-polymers.py` to change the random seed) is selected to be used in simulations.
 
@@ -52,11 +51,11 @@ These are the mains scripts:
 
 First, we generate all pget all polymer sequences:
 
-`python3 get_polymers.py -input input_filename.xyz -output output_filename.xyz -xter Nter sequence`
+`python3 get_polymers.py --input FILE.xyz --output NAME --xter Nter|Cter --sequence SEQ`
 
 It combines all the polymers with the protein, and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
-`python3 get_protein-polymers.py -input input_filename.xyz -output output_filename.xyz -xter Nter nconfs sequence`
+`python3 get_protein-polymer.py --input FILE.xyz --output NAME --xter Nter|Cter --nconfs '5 10 20' --seq SEQ`
 
 
 
