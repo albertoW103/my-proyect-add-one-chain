@@ -10,15 +10,21 @@ The script generates polymers following a Rotational Isomeric State (RIS) model 
 The subroutine is at `src/random/polymer.x`.
 The default conditions are already set in `src/random/polymer.x`:
 
-- `lseg = 0.38`  (nm) , distance between segments
+- `lseg = 0.38`  (nm) , distance between segments for alpha carbons in proteins
 - `nrot = 100`        , rotations included
-- `cuantas = 100000`  , Total number of generated configurations. 100000/100 = 1000 generated configurations
+- `cuantas = 100000`  , total number of generated configurations. 100000/100 = 1000 generated configurations (the rest are rotations)
 
-These parameters can be modified in the aux-main.f95 script.
+These parameters can be modified in the `aux-main.f95` script.
 
 ---
 
-## 2. Scripts principales
+## 3. Dependencia de `random/` to generate configuration of polymers
+
+The script employed protein in the format xyz for molecular theory.
+
+---
+
+## 3. Scripts principales
 
 | file                            | principal function                                            |
 |---------------------------------|---------------------------------------------------------------|
@@ -28,7 +34,7 @@ These parameters can be modified in the aux-main.f95 script.
 
 ---
 
-## 5. How to run
+## 4. How to run
 
 get all polymer sequences:
 
@@ -37,4 +43,15 @@ get all polymer sequences:
 It combines all the polymers with the protein, and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
 `python3 get_protein-polymers.py.py -input input_filename.xyz -output output_filename.xyz -xter Nter nconfs sequence`
+
+
+
+
+
+
+
+
+
+
+
 
