@@ -4,9 +4,9 @@ Script to generate and assemble random polymers (peptides) onto a protein at the
 
 ---
 
-## 1. Dependencia de `random/`
+## 1. Dependencia de `random/` to generate configuration of polymers
 
-The script generates polymers following a RIS model that generates 100,000 random configurations.
+The script generates polymers following a Rotational Isomeric State (RIS) model that generates 100,000 random configurations.
 The subroutine is at `src/random/polymer.x`.
 The default conditions are already set in `src/random/polymer.x`:
 
