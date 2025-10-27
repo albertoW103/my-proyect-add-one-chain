@@ -39,11 +39,11 @@ From this filtered set, a random subset (see `get_protein-polymers.py` to change
 
 These are the mains scripts:
 
-| file                            | principal function                                            |
-|---------------------------------|---------------------------------------------------------------|
-| `get_polymers.py`               | Generates all polymers that fit to a protein                  |
-| `get_protein-polymer.py`        | Assembles the all protein-polymer complexes                   |
-| `my_functions/my_functions.py`  | Auxiliary utilities                                           |
+| file                               | principal function                                            |
+|------------------------------------|---------------------------------------------------------------|
+| `get_polymers.py`                  | Generates all polymers that fit to a protein                  |
+| `get_protein-polymer.py`           | Assembles the all protein-polymer complexes                   |
+| `my_functions/my_functions.py`     | Auxiliary utilities                                           |
 
 ---
 
@@ -51,11 +51,11 @@ These are the mains scripts:
 
 First, we generate all polymer sequences that fit to the protein:
 
-`python3 get_polymers.py --input FILE.xyz --xter Nter|Cter --seq SEQ`
+`python3 get_polymers.py --input FILE.xyz --xter Nter --seq SEQ`
 
 Then, we combine those polymers with the protein and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
-`python3 get_protein-polymer.py --input FILE.xyz --output NAME --xter Nter|Cter --nconfs '5 10 20' --seq SEQ`
+`python3 get_protein-polymer.py --input FILE.xyz --output NAME --xter Nter --nconfs '5 10 20' --seq SEQ`
 
 
 

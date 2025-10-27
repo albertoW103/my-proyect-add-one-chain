@@ -1,7 +1,6 @@
-- correccion de Nter y Cter al inicio de todo agregar.
 - optimizar las cuentas.
-- agregar warnings, cuando me paso del numero de rotaciones totales
-- get_protein_polymer no debe de necesitar sequencia
+- agregar otras formas de expresar una inversion.
+- correguir el tema de los terminales al inicio.
 
 
 python3 get_polymers.py --input ../examples/1J05.xyz --output test --xter Nter --seq GGGGGG
