@@ -53,11 +53,11 @@ These are the mains scripts:
 
 First, we generate all polymer sequences that fit to the protein:
 
-`python3 get_polymers.py --input FILE.xyz --xter Nter --seq SEQ`
+`python3 get_polymers.py --input 1J05.xyz --xter Nter --seq GGSGGSGGS`
 
 Then, we combine those polymers with the protein and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
-`python3 get_protein-polymer.py --input FILE.xyz --output NAME --xter Nter --nconfs '5 10 20' --seq SEQ`
+`python3 get_protein-polymer.py --input 1J05.xyz --output 1J05 --xter Nter --nconfs '5 10 20' --seq GGSGGSGGS`
 
 
 
