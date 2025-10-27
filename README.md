@@ -8,14 +8,16 @@ The polymer is attached to the N-ter or C-ter end of the protein.
 ## 1. How polymer configurations are generated
 
 The script generates polymers configurations following a Rotational Isomeric State (RIS) model.
+This model generate 100000 random configurations.
 
 By default, polymer configurations are generated following the parameters:
 - `lseg = 0.38`  (nm) , distance between segments for alpha carbons in proteins.
-- `nrot = 100`        , rotations included.
-- `cuantas = 100000`  , total number of generated configurations. 100000/100 = 1000 generated configurations (the rest are rotations).
+- `nrot = 100`        , numer of rotations that are included (following Euler angles).
+- `cuantas = 100000`  , total number of configurations to generated. 100000/100 = 1000 generated configurations (the rest are rotations).
 
 
 This parameters can be modified in the file `aux-main.f95` at `/random`.
+The executable `polymer.x` is compiled each time the code is employed.
 
 
 ---
