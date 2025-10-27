@@ -49,11 +49,11 @@ These are the mains scripts:
 
 ## 4. How to run
 
-First, we generate all pget all polymer sequences:
+First, we generate all polymer sequences that fit to the protein:
 
-`python3 get_polymers.py --input FILE.xyz --output NAME --xter Nter|Cter --sequence SEQ`
+`python3 get_polymers.py --input FILE.xyz --output NAME --xter Nter|Cter --seq SEQ`
 
-It combines all the polymers with the protein, and generates a number of random conformations of the protein-polymer conjugates (plus the total)
+Then, we combine those polymers with the protein and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
 `python3 get_protein-polymer.py --input FILE.xyz --output NAME --xter Nter|Cter --nconfs '5 10 20' --seq SEQ`
 
