@@ -55,11 +55,18 @@ First, we generate all polymer sequences that fit to the protein:
 
 `python3 get_polymers.py -input ../examples/1J05.xyz -xter Nter -seq GGSGGSGGS`
 
+This script generate:
+- `polymers.xyz`            , xyz file that contain all polymer configurations
+- `filtered_polymers.xyz`   , xyz file that contain polymers configuration that not overlap the protein 
+
+
 Then, we combine those polymers with the protein and generates a number of random conformations of the protein-polymer conjugates (plus the total)
 
 `python3 get_protein-polymer.py -input ../examples/1J05.xyz -output 1J05 -xter Nter -nconfs '5 10 20' -seq GGSGGSGGS`
 
-
+This script generate:
+- `protein.xyz`             , xyz file that contains all protein-polymer configurations
+- `protein.seq`             , seq file that contains protein-polymer conjugate that repeats in xyz file
 
 
 
